@@ -1077,189 +1077,248 @@ body .markdown-body
 .highlight .il{color:#009999}
 .highlight .gc{color:#999;background-color:#EAF2F5}
 </style><title>CCNA_2_Fiche</title></head><body><article class="markdown-body"><h1 id="taches-et-commandes-ios">Tâches et Commandes IOS<a class="headerlink" href="#taches-et-commandes-ios" title="Permanent link"></a></h1>
-<table>
-<thead>
-<tr>
-<th>Tâche</th>
-<th>Commande</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Passer en mode de configuration globale</td>
-<td><code>S1# configure terminal</code></td>
-</tr>
-<tr>
-<td>Passer en mode de configuration d&rsquo;interface pour SVI</td>
-<td><code>S1(config)# interface vlan 99</code></td>
-</tr>
-<tr>
-<td>Configurer l&rsquo;adresse IPv4 de l&rsquo;interface de gestion</td>
-<td><code>S1(config-if)# ip address 172.17.99.11 255.255.255.0</code></td>
-</tr>
-<tr>
-<td>Configurer l&rsquo;adresse IPv6 de l&rsquo;interface de gestion</td>
-<td><code>S1(config-if)# ipv6 address 2001:db8:acad:99::1/64</code></td>
-</tr>
-<tr>
-<td>Activer l&rsquo;interface de gestion</td>
-<td><code>S1(config-if)# no shutdown</code></td>
-</tr>
-<tr>
-<td>Repasser en mode d&rsquo;exécution privilégié</td>
-<td><code>S1(config-if)# end</code></td>
-</tr>
-<tr>
-<td>Enregistrer la configuration en cours dans la configuration de démarrage</td>
-<td><code>S1# copy running-config startup-config</code></td>
-</tr>
-<tr>
-<td>Passer en mode de configuration globale</td>
-<td><code>S1# configure terminal</code></td>
-</tr>
-<tr>
-<td>Configurer la passerelle par défaut pour le commutateur</td>
-<td><code>S1(config)# ip default-gateway 172.17.99.1</code></td>
-</tr>
-<tr>
-<td>Repasser en mode d&rsquo;exécution privilégié</td>
-<td><code>S1(config-if)# end</code></td>
-</tr>
-<tr>
-<td>Enregistrer la configuration en cours dans la configuration de démarrage</td>
-<td><code>S1# copy running-config startup-config</code></td>
-</tr>
-<tr>
-<td>Passer en mode de configuration globale</td>
-<td><code>S1# configure terminal</code></td>
-</tr>
-<tr>
-<td>Passer en mode de configuration d&rsquo;interface</td>
-<td><code>S1(config)# interface FastEthernet 0/1</code></td>
-</tr>
-<tr>
-<td>Configurer le mode bidirectionnel d&rsquo;interface</td>
-<td><code>S1(config-if)# duplex full</code></td>
-</tr>
-<tr>
-<td>Configurer la vitesse d&rsquo;interface</td>
-<td><code>S1(config-if)# speed 100</code></td>
-</tr>
-<tr>
-<td>Repasser en mode d&rsquo;exécution privilégié</td>
-<td><code>S1(config-if)# end</code></td>
-</tr>
-<tr>
-<td>Enregistrer la configuration en cours dans la configuration de démarrage</td>
-<td><code>S1# copy running-config startup-config</code></td>
-</tr>
-<tr>
-<td>Afficher l&rsquo;état et la configuration des interfaces</td>
-<td><code>S1# show interfaces [interface-id]</code></td>
-</tr>
-<tr>
-<td>Afficher la configuration initiale actuelle</td>
-<td><code>S1# show startup-config</code></td>
-</tr>
-<tr>
-<td>Afficher la configuration courante</td>
-<td><code>S1# show running-config</code></td>
-</tr>
-<tr>
-<td>Afficher les informations sur le système de fichiers Flash</td>
-<td><code>S1# show flash</code></td>
-</tr>
-<tr>
-<td>Afficher l&rsquo;état matériel et logiciel du système</td>
-<td><code>S1# show version</code></td>
-</tr>
-<tr>
-<td>Afficher l&rsquo;historique de la commande saisie</td>
-<td><code>S1# show history</code></td>
-</tr>
-<tr>
-<td>Afficher les informations IP d&rsquo;une interface</td>
-<td><code>S1# show ip interface [interface-id]</code> OU <br> <code>S1# show ipv6 interface [interface-id]</code></td>
-</tr>
-<tr>
-<td>Afficher la table d&rsquo;adresses MAC</td>
-<td><code>S1# show mac-address-table</code> OU <br> <code>S1# show mac address-table</code></td>
-</tr>
-<tr>
-<td>Vérifier le support SSH</td>
-<td><code>S1# show ip ssh</code></td>
-</tr>
-<tr>
-<td>Configurer le domaine IP</td>
-<td><code>S1(config)# ip domain-name cisco.com</code></td>
-</tr>
-<tr>
-<td>Générer des paires de clés RSA</td>
-<td><code>S1(config)# crypto key generate rsa</code>  <br> <code>How many bits in the modulus [512]: 1024</code></td>
-</tr>
-<tr>
-<td>Configurer l&rsquo;authentification des utilisateurs</td>
-<td><code>S1(config)# username admin secret ccna</code></td>
-</tr>
-<tr>
-<td>Configurer les lignes de vty</td>
-<td><code>S1(config)# line vty 0 15</code> <br> <code>S1(config-line)# transport input ssh</code> <br> <code>S1(config-line)# login local</code> <br> <code>S1(config-line)# exit</code></td>
-</tr>
-<tr>
-<td>Activer SSH version 2</td>
-<td><code>S1(config)# ip ssh version 2</code></td>
-</tr>
-<tr>
-<td>Vérifier les adresses locales et multidiffusion des liens IPv6</td>
-<td><code>R1# show ipv6 interface gigabitethernet 0/0/0</code></td>
-</tr>
-<tr>
-<td>Vérification de la configuration d&rsquo;interface</td>
-<td><code>R1 show running-config interface gigabitethernet 0/0/0</code></td>
-</tr>
-<tr>
-<td>Filtrage des résultats de commande show</td>
-<td><code>R1# show running-config | section line vty</code></td>
-</tr>
-<tr>
-<td>Augmenter la taille du history</td>
-<td><code>terminal history size 200</code></td>
-</tr>
-<tr>
-<td>Créez un VLAN avec un numéro d&rsquo;identité valide</td>
-<td><code>Switch(config)# vlan vlan-id</code></td>
-</tr>
-<tr>
-<td>Indiquez un nom unique pour identifier le VLAN</td>
-<td><code>Switch(config-vlan)# name vlan-name</code></td>
-</tr>
-<tr>
-<td>Passer en mode de configuration d&rsquo;interface</td>
-<td><code>Switch(config)# interface interface-id</code></td>
-</tr>
-<tr>
-<td>Définissez le port en mode d&rsquo;accès</td>
-<td><code>Switch(config-if)# switchport mode access</code></td>
-</tr>
-<tr>
-<td>Affecter le port à un réseau local virtuel</td>
-<td><code>Switch(config-if)# switchport access vlan vlan-id</code></td>
-</tr>
-<tr>
-<td>Afficher les informations des vlan</td>
-<td><code>S1# show vlan biref</code></td>
-</tr>
-<tr>
-<td>To enable trunking from a Cisco switch to a device that does not support DTP</td>
-<td><code>S1(config-if)# switchport mode trunk</code> <br> <code>S1(config-if)# switchport nonegotiate</code></td>
-</tr>
-<tr>
-<td>To re-enable dynamic trunking protocol</td>
-<td><code>S1(config-if)# switchport mode dynamic auto</code></td>
-</tr>
-<tr>
-<td>Configurations de VLAN et de trunk de commutateur S2</td>
-<td><code>S2(config)# vlan 10</code><br><code>S2(config-vlan)# name LAN10</code><br><code>S2(config-vlan)# exit</code><br><code>S2(config)# vlan 20</code><br><code>S2(config-vlan)# name LAN20</code><br><code>S2(config-vlan)# exit</code><br><code>S2(config)# vlan 99</code><br><code>S2(config-vlan)# name Management</code><br><code>S2(config-vlan)# exit</code><br><code>S2(config)# interface vlan 99</code><br><code>S2(config-if)# ip add 192.168.99.3 255.255.255.0</code><br><code>S2(config-if)# no shut</code><br><code>S2(config-if)# exit</code><br><code>S2(config)# ip default-gateway 192.168.99.1</code><br><code>S2(config)# interface fa0/18</code><br><code>S2(config-if)# switchport mode access</code><br><code>S2(config-if)# switchport access vlan 20</code><br><code>S2(config-if)# no shut</code><br><code>S2(config-if)# exit</code><br><code>S2(config)# interface fa0/1</code><br><code>S2(config-if)# switchport mode trunk</code><br><code>S2(config-if)# no shut</code><br><code>S2(config-if)# exit</code><br><code>S2(config-if)# end</code></td>
-</tr>
-</tbody>
-</table></article></body></html>
+<h2 id="personnalisation-et-securisation-de-lappareil">Personnalisation et Sécurisation de l&rsquo;Appareil<a class="headerlink" href="#personnalisation-et-securisation-de-lappareil" title="Permanent link"></a></h2>
+<h3 id="nommer-lappareil-avec-hostname">Nommer l&rsquo;appareil avec Hostname<a class="headerlink" href="#nommer-lappareil-avec-hostname" title="Permanent link"></a></h3>
+<ul>
+<li>Pour définir le nom de l&rsquo;appareil : <code>Router(config)# hostname [nom-d'appareil]</code><ul>
+<li>Exemple : <code>Router(config)# hostname MyRouter</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="creer-un-banner">Créer un Banner<a class="headerlink" href="#creer-un-banner" title="Permanent link"></a></h3>
+<ul>
+<li>Pour définir un message de bannière : <code>Router(config)# banner motd # [message] #</code><ul>
+<li>Exemple : <code>Router(config)# banner motd # Bienvenue sur MyRouter - Accès autorisé uniquement #</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="activer-le-mot-de-passe-pour-le-mode-privilegie">Activer le mot de passe pour le mode privilégié<a class="headerlink" href="#activer-le-mot-de-passe-pour-le-mode-privilegie" title="Permanent link"></a></h3>
+<ul>
+<li>Pour définir un mot de passe pour l&rsquo;accès au mode privilégié : <code>Router(config)# enable secret [mot-de-passe]</code><ul>
+<li>Exemple : <code>Router(config)# enable secret mySecretPassword</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="definir-un-mot-de-passe-pour-le-mode-de-configuration-conf-t">Définir un mot de passe pour le mode de configuration (conf t)<a class="headerlink" href="#definir-un-mot-de-passe-pour-le-mode-de-configuration-conf-t" title="Permanent link"></a></h3>
+<ul>
+<li>Pour sécuriser l&rsquo;accès au mode de configuration : <code>Router(config)# line con 0</code><ul>
+<li>Suivi par : <code>Router(config-line)# password [mot-de-passe]</code></li>
+<li>Et pour requérir le mot de passe à la connexion : <code>Router(config-line)# login</code></li>
+<li>Exemple : 
+<div class="highlight"><pre>Router(config)# line con 0
+Router(config-line)# password confPassword
+Router(config-line)# login
+</pre></div></li>
+</ul>
+</li>
+</ul>
+<h3 id="chiffrer-les-mots-de-passe-dans-running-configuration">Chiffrer les mots de passe dans Running Configuration<a class="headerlink" href="#chiffrer-les-mots-de-passe-dans-running-configuration" title="Permanent link"></a></h3>
+<ul>
+<li>Pour chiffrer les mots de passe affichés dans la configuration en cours : <code>Router(config)# service password-encryption</code></li>
+<li>Cette commande crypte tous les mots de passe non chiffrés qui apparaissent lorsqu&rsquo;on fait <code>show running-config</code>.</li>
+</ul>
+<h3 id="copier-la-startup-configuration">Copier la Startup Configuration<a class="headerlink" href="#copier-la-startup-configuration" title="Permanent link"></a></h3>
+<ul>
+<li>Pour sauvegarder la configuration actuelle dans la configuration de démarrage : <code>Router# copy running-config startup-config</code></li>
+<li>Cela sauvegarde la configuration en cours d&rsquo;utilisation dans la mémoire non volatile pour le prochain démarrage.</li>
+</ul>
+<h3 id="voir-la-running-configuration">Voir la Running Configuration<a class="headerlink" href="#voir-la-running-configuration" title="Permanent link"></a></h3>
+<ul>
+<li>Pour afficher la configuration actuelle de l&rsquo;appareil : <code>Router# show running-config</code></li>
+<li>Cette commande affiche la configuration actuellement active sur l&rsquo;appareil.</li>
+</ul>
+<h2 id="ajout-dadresses-ip-dans-un-routeur-et-un-commutateur">Ajout d&rsquo;adresses IP dans un routeur et un commutateur<a class="headerlink" href="#ajout-dadresses-ip-dans-un-routeur-et-un-commutateur" title="Permanent link"></a></h2>
+<h3 id="configuration-dune-adresse-ip-sur-un-routeur">Configuration d&rsquo;une adresse IP sur un routeur<a class="headerlink" href="#configuration-dune-adresse-ip-sur-un-routeur" title="Permanent link"></a></h3>
+<ul>
+<li>Entrer en mode de configuration d&rsquo;interface : <code>Router(config)# interface [interface-type][interface-number]</code><ul>
+<li>Exemple : <code>Router(config)# interface GigabitEthernet0/0</code></li>
+</ul>
+</li>
+<li>Assigner une adresse IP et un masque de sous-réseau : <code>Router(config-if)# ip address [ip-address] [subnet-mask]</code><ul>
+<li>Exemple : <code>Router(config-if)# ip address 192.168.1.1 255.255.255.0</code></li>
+</ul>
+</li>
+<li>Activer l&rsquo;interface : <code>Router(config-if)# no shutdown</code></li>
+<li>Quitter le mode de configuration d&rsquo;interface : <code>Router(config-if)# exit</code></li>
+</ul>
+<h3 id="configuration-dune-adresse-ip-sur-un-commutateur-pour-la-gestion">Configuration d&rsquo;une adresse IP sur un commutateur (pour la gestion)<a class="headerlink" href="#configuration-dune-adresse-ip-sur-un-commutateur-pour-la-gestion" title="Permanent link"></a></h3>
+<ul>
+<li>Entrer en mode de configuration d&rsquo;interface VLAN (pour la gestion) : <code>Switch(config)# interface vlan [vlan-id]</code><ul>
+<li>Exemple : <code>Switch(config)# interface vlan 1</code></li>
+</ul>
+</li>
+<li>Assigner une adresse IP et un masque de sous-réseau : <code>Switch(config-if)# ip address [ip-address] [subnet-mask]</code><ul>
+<li>Exemple : <code>Switch(config-if)# ip address 192.168.1.2 255.255.255.0</code></li>
+</ul>
+</li>
+<li>Activer l&rsquo;interface VLAN : <code>Switch(config-if)# no shutdown</code></li>
+<li>Définir la passerelle par défaut : <code>Switch(config)# ip default-gateway [gateway-ip]</code><ul>
+<li>Exemple : <code>Switch(config)# ip default-gateway 192.168.1.1</code></li>
+</ul>
+</li>
+<li>Quitter le mode de configuration d&rsquo;interface : <code>Switch(config-if)# exit</code></li>
+</ul>
+<h2 id="faire-du-routage-statique">Faire du routage statique<a class="headerlink" href="#faire-du-routage-statique" title="Permanent link"></a></h2>
+<ul>
+<li>Entrer en mode privilégié : <code>Router&gt; enable</code></li>
+<li>Entrer en mode de configuration globale : <code>Router# configure terminal</code></li>
+<li>Configurer une route statique : <code>Router(config)# ip route [network] [mask] [next-hop-ip or exit-interface]</code></li>
+<li>Exemple : <code>Router(config)# ip route 192.168.1.0 255.255.255.0 10.0.0.2</code></li>
+</ul>
+<h2 id="faire-du-routage-dynamique-en-rip">Faire du routage dynamique en RIP<a class="headerlink" href="#faire-du-routage-dynamique-en-rip" title="Permanent link"></a></h2>
+<ul>
+<li>Entrer en mode de configuration globale : <code>Router(config)#</code></li>
+<li>Activer le routage RIP : <code>Router(config)# router rip</code></li>
+<li>Configurer la version de RIP : <code>Router(config-router)# version 2</code></li>
+<li>Annoncer les réseaux : <code>Router(config-router)# network [network-address]</code></li>
+<li>Exemple : <code>Router(config-router)# network 192.168.1.0</code></li>
+<li>Quitter le mode de configuration RIP : <code>Router(config-router)# exit</code></li>
+</ul>
+<h2 id="faire-du-routage-dynamique-en-ospf">Faire du routage dynamique en OSPF<a class="headerlink" href="#faire-du-routage-dynamique-en-ospf" title="Permanent link"></a></h2>
+<ul>
+<li>Entrer en mode de configuration globale : <code>Router(config)#</code></li>
+<li>Activer le routage OSPF : <code>Router(config)# router ospf [process-id]</code></li>
+<li>Annoncer les réseaux et définir les aires OSPF : <code>Router(config-router)# network [network-address] [wildcard-mask] area [area-id]</code></li>
+<li>Exemple : <code>Router(config-router)# network 192.168.1.0 0.0.0.255 area 0</code></li>
+<li>Quitter le mode de configuration OSPF : <code>Router(config-router)# exit</code></li>
+</ul>
+<h2 id="mettre-ssh-sur-un-routeur">Mettre SSH sur un routeur<a class="headerlink" href="#mettre-ssh-sur-un-routeur" title="Permanent link"></a></h2>
+<ul>
+<li>Vérifier le support SSH : <code>S1# show ip ssh</code></li>
+<li>Configurer le domaine IP : <code>S1(config)# ip domain-name cisco.com</code></li>
+<li>Générer des paires de clés RSA : <code>S1(config)# crypto key generate rsa</code></li>
+<li>Configurer l&rsquo;authentification des utilisateurs : <code>S1(config)# username root secret gonfle!</code></li>
+<li>Configurer les lignes de VTY pour SSH :
+<div class="highlight"><pre>S1(config)# line vty 0 15
+S1(config-line)# transport input ssh
+S1(config-line)# login local
+S1(config-line)# exit
+</pre></div></li>
+<li>Activer SSH version 2 : <code>S1(config)# ip ssh version 2</code></li>
+</ul>
+<h2 id="creer-des-vlan-differents">Créer des VLAN différents<a class="headerlink" href="#creer-des-vlan-differents" title="Permanent link"></a></h2>
+<ul>
+<li>
+<p>Créer un VLAN avec un numéro d&rsquo;identité valide :</p>
+<ul>
+<li>Commande : <code>Switch(config)# vlan vlan-id</code></li>
+<li>Exemple : <code>Switch(config)# vlan 10</code></li>
+</ul>
+</li>
+<li>
+<p>Indiquer un nom unique pour identifier le VLAN :</p>
+<ul>
+<li>Commande : <code>Switch(config-vlan)# name vlan-name</code></li>
+<li>Exemple : <code>Switch(config-vlan)# name SalesDept</code></li>
+</ul>
+</li>
+<li>
+<p>Passer en mode de configuration d&rsquo;interface :</p>
+<ul>
+<li>Commande : <code>Switch(config)# interface interface-id</code></li>
+<li>Exemple : <code>Switch(config)# interface GigabitEthernet0/1</code></li>
+</ul>
+</li>
+<li>
+<p>Définir le port en mode d&rsquo;accès :</p>
+<ul>
+<li>Commande : <code>Switch(config-if)# switchport mode access</code></li>
+</ul>
+</li>
+<li>
+<p>Affecter le port à un VLAN :</p>
+<ul>
+<li>Commande : <code>Switch(config-if)# switchport access vlan vlan-id</code></li>
+<li>Exemple : <code>Switch(config-if)# switchport access vlan 10</code></li>
+</ul>
+</li>
+<li>
+<p>Afficher les informations des VLAN :</p>
+<ul>
+<li>Commande : <code>S1# show vlan brief</code></li>
+<li>Exemple : <code>S1# show vlan brief</code></li>
+</ul>
+</li>
+<li>
+<p>Activer le trunking sur un port :</p>
+<ul>
+<li>Commande : <code>S1(config-if)# switchport mode trunk</code></li>
+<li>Exemple : <code>S1(config-if)# switchport mode trunk</code></li>
+</ul>
+</li>
+<li>
+<p>Désactiver la négociation DTP (pas nécessaire si configuration manuelle) :</p>
+<ul>
+<li>Commande : <code>S1(config-if)# switchport nonegotiate</code></li>
+</ul>
+</li>
+<li>
+<p>Réactiver le protocole DTP dynamique (pas nécessaire si configuration manuelle) :</p>
+<ul>
+<li>Commande : <code>S1(config-if)# switchport mode dynamic auto</code></li>
+</ul>
+</li>
+<li>
+<p>Pour configurer manuellement les VLANs autorisés sur un lien trunk, utiliser :</p>
+<ul>
+<li>Commande : <code>S1(config-if)# switchport trunk allowed vlan vlan-id1, vlan-id2</code></li>
+<li>Exemple : <code>S1(config-if)# switchport trunk allowed vlan 10,20</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="configurations-de-vlan-et-de-trunk-de-commutateur-s2">Configurations de VLAN et de trunk de commutateur S2<a class="headerlink" href="#configurations-de-vlan-et-de-trunk-de-commutateur-s2" title="Permanent link"></a></h2>
+<div class="highlight"><pre>S2(config)# vlan 10
+S2(config-vlan)# name LAN10
+S2(config-vlan)# exit
+S2(config)# vlan 20
+S2(config-vlan)# name LAN20
+S2(config-vlan)# exit
+S2(config)# vlan 99
+S2(config-vlan)# name Management
+S2(config-vlan)# exit
+S2(config)# interface vlan 99
+S2(config-if)# ip add 192.168.99.3 255.255.255.0
+S2(config-if)# no shut
+S2(config-if)# exit
+S2(config)# ip default-gateway 192.168.99.1
+S2(config)# interface fa0/18
+S2(config-if)# switchport mode access
+S2(config-if)# switchport access vlan 20
+S2(config-if)# no shut
+S2(config-if)# exit
+S2(config)# interface fa0/1
+S2(config-if)# switchport mode trunk
+S2(config-if)# no shut
+S2(config-if)# exit
+S2(config)# end
+</pre></div>
+
+<h2 id="routage-entre-les-differents-vlans-avec-un-routeur">Routage entre les différents VLANs avec un Routeur<a class="headerlink" href="#routage-entre-les-differents-vlans-avec-un-routeur" title="Permanent link"></a></h2>
+<h3 id="configuration-du-routeur-pour-le-routage-inter-vlan">Configuration du Routeur pour le Routage Inter-VLAN<a class="headerlink" href="#configuration-du-routeur-pour-le-routage-inter-vlan" title="Permanent link"></a></h3>
+<ol>
+<li><strong>Création des sous-interfaces</strong> : Chaque sous-interface sur le routeur correspondra à un VLAN sur le commutateur. Cela permet au routeur de router le trafic entre ces VLANs.</li>
+</ol>
+<ul>
+<li>Commande : <code>Router(config)# interface [interface-type][interface-number].[subinterface-number]</code></li>
+<li>Exemple : <code>Router(config)# interface GigabitEthernet0/0.10</code></li>
+</ul>
+<ol start="2">
+<li>
+<p><strong>Attribution d&rsquo;une adresse IP et association avec un VLAN</strong> : Définir une adresse IP pour chaque sous-interface et spécifier le VLAN auquel elle appartient.</p>
+<ul>
+<li>Commande : <code>Router(config-subif)# encapsulation dot1Q [vlan-id]</code></li>
+<li>Commande : <code>Router(config-subif)# ip address [ip-address] [subnet-mask]</code></li>
+<li>Exemple pour VLAN 10 :
+ <div class="highlight"><pre>Router(config-subif)# encapsulation dot1Q 10
+Router(config-subif)# ip address 192.168.10.1 255.255.255.0
+</pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Activation des sous-interfaces</strong> : Activer chaque sous-interface pour qu&rsquo;elle soit opérationnelle.</p>
+<ul>
+<li>Commande : <code>Router(config-subif)# no shutdown</code></li>
+<li>Exemple : <code>Router(config-subif)# no shutdown</code></li>
+</ul>
+</li>
+</ol></article></body></html>
