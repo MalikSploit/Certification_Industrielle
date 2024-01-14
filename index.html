@@ -1184,17 +1184,40 @@ Router(config-line)# login
 </ul>
 <h2 id="mettre-ssh-sur-un-routeur">Mettre SSH sur un routeur<a class="headerlink" href="#mettre-ssh-sur-un-routeur" title="Permanent link"></a></h2>
 <ul>
-<li>Vérifier le support SSH : <code>S1# show ip ssh</code></li>
-<li>Configurer le domaine IP : <code>S1(config)# ip domain-name cisco.com</code></li>
-<li>Générer des paires de clés RSA : <code>S1(config)# crypto key generate rsa</code></li>
-<li>Configurer l&rsquo;authentification des utilisateurs : <code>S1(config)# username root secret gonfle!</code></li>
+<li>Vérifier le support SSH : <code>R1# show ip ssh</code></li>
+<li>Configurer le domaine IP : <code>R1(config)# ip domain-name cisco.com</code></li>
+<li>Générer des paires de clés RSA : <code>R1(config)# crypto key generate rsa</code></li>
+<li>Configurer l&rsquo;authentification des utilisateurs : <code>R1(config)# username root secret gonfle!</code></li>
 <li>Configurer les lignes de VTY pour SSH :
-<div class="highlight"><pre>S1(config)# line vty 0 15
-S1(config-line)# transport input ssh
-S1(config-line)# login local
-S1(config-line)# exit
+<div class="highlight"><pre>R1(config)# line vty 0 15
+R1(config-line)# transport input ssh
+R1(config-line)# login local
+R1(config-line)# exit
 </pre></div></li>
 <li>Activer SSH version 2 : <code>S1(config)# ip ssh version 2</code></li>
+</ul>
+<h2 id="configuration-des-routeurs-en-serie">Configuration des Routeurs en Série<a class="headerlink" href="#configuration-des-routeurs-en-serie" title="Permanent link"></a></h2>
+<h3 id="choix-du-routeur-maitre-dce-et-configuration-du-signal-dhorloge">Choix du Routeur Maître (DCE) et Configuration du Signal d&rsquo;Horloge<a class="headerlink" href="#choix-du-routeur-maitre-dce-et-configuration-du-signal-dhorloge" title="Permanent link"></a></h3>
+<ol>
+<li><strong>Choisir le Routeur Maître (DCE) et Configurer le Signal d&rsquo;Horloge</strong> :</li>
+</ol>
+<ul>
+<li>Accéder au mode de configuration globale sur le routeur désigné comme DCE :</li>
+<li>Utiliser la commande <code>clock rate</code> pour configurer le signal d&rsquo;horloge.</li>
+<li>Exemple pour définir le Routeur 1 comme DCE avec une clock rate de 64000 bps :
+     <div class="highlight"><pre>Routeur1&gt; enable
+Routeur1# configure terminal
+Router1(config)# interface serial 0/0/0
+Router1(config-if)# clock rate 64000
+</pre></div></li>
+</ul>
+<h3 id="configuration-du-routeur-dte">Configuration du Routeur DTE<a class="headerlink" href="#configuration-du-routeur-dte" title="Permanent link"></a></h3>
+<ol start="2">
+<li><strong>Configurer le Routeur DTE (Data Terminal Equipment)</strong> :</li>
+</ol>
+<ul>
+<li>Le routeur DTE se synchronisera automatiquement sur le signal d&rsquo;horloge du DCE.</li>
+<li>Aucune configuration spécifique de la clock rate n&rsquo;est nécessaire sur le DTE.</li>
 </ul>
 <h2 id="creer-des-vlan-differents">Créer des VLAN différents<a class="headerlink" href="#creer-des-vlan-differents" title="Permanent link"></a></h2>
 <ul>

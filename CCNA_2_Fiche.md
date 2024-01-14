@@ -81,18 +81,41 @@
 - Quitter le mode de configuration OSPF : `Router(config-router)# exit`
 
 ## Mettre SSH sur un routeur
-- Vérifier le support SSH : `S1# show ip ssh`
-- Configurer le domaine IP : `S1(config)# ip domain-name cisco.com`
-- Générer des paires de clés RSA : `S1(config)# crypto key generate rsa`
-- Configurer l'authentification des utilisateurs : `S1(config)# username root secret gonfle!`
+- Vérifier le support SSH : `R1# show ip ssh`
+- Configurer le domaine IP : `R1(config)# ip domain-name cisco.com`
+- Générer des paires de clés RSA : `R1(config)# crypto key generate rsa`
+- Configurer l'authentification des utilisateurs : `R1(config)# username root secret gonfle!`
 - Configurer les lignes de VTY pour SSH :
 ```
-S1(config)# line vty 0 15
-S1(config-line)# transport input ssh
-S1(config-line)# login local
-S1(config-line)# exit
+R1(config)# line vty 0 15
+R1(config-line)# transport input ssh
+R1(config-line)# login local
+R1(config-line)# exit
 ```
 - Activer SSH version 2 : `S1(config)# ip ssh version 2`
+
+## Configuration des Routeurs en Série
+
+### Choix du Routeur Maître (DCE) et Configuration du Signal d'Horloge
+
+1. **Choisir le Routeur Maître (DCE) et Configurer le Signal d'Horloge** :
+
+   - Accéder au mode de configuration globale sur le routeur désigné comme DCE :
+   - Utiliser la commande `clock rate` pour configurer le signal d'horloge.
+   - Exemple pour définir le Routeur 1 comme DCE avec une clock rate de 64000 bps :
+     ```
+     Routeur1> enable
+     Routeur1# configure terminal
+     Router1(config)# interface serial 0/0/0
+     Router1(config-if)# clock rate 64000
+     ```
+
+### Configuration du Routeur DTE
+
+2. **Configurer le Routeur DTE (Data Terminal Equipment)** :
+
+   - Le routeur DTE se synchronisera automatiquement sur le signal d'horloge du DCE.
+   - Aucune configuration spécifique de la clock rate n'est nécessaire sur le DTE.
 
 ## Créer des VLAN différents
 - Créer un VLAN avec un numéro d'identité valide :
