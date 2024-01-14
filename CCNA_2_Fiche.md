@@ -139,11 +139,9 @@ R1(config-line)# exit
 
 - Afficher les informations des VLAN :
     - Commande : `S1# show vlan brief`
-    - Exemple : `S1# show vlan brief`
 
 - Activer le trunking sur un port :
     - Commande : `S1(config-if)# switchport mode trunk`
-    - Exemple : `S1(config-if)# switchport mode trunk`
 
 - Désactiver la négociation DTP (pas nécessaire si configuration manuelle) :
       - Commande : `S1(config-if)# switchport nonegotiate`
@@ -204,4 +202,3 @@ S2(config)# end
 3. **Activation des sous-interfaces** : Activer chaque sous-interface pour qu'elle soit opérationnelle.
    
      - Commande : `Router(config-subif)# no shutdown`
-     - Exemple : `Router(config-subif)# no shutdown`
